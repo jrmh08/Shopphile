@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="0dp"
+        android:layout_height="197dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/cart1"
+                android:layout_width="400px"
+                android:layout_height="400px"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_order2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium" />
+
+            <TextView
+                android:id="@+id/brand2"
+                android:layout_width="38dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="154dp"
+                android:layout_marginBottom="3dp"
+                android:text="Uniqlo"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@+id/prod2name1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/prod2name2"
+                android:layout_width="51dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="141dp"
+                android:layout_marginBottom="3dp"
+                android:text="Stretch"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/price2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintTop_toBottomOf="@+id/prod2name1" />
+
+            <TextView
+                android:id="@+id/prod2name1"
+                android:layout_width="61dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="131dp"
+                android:layout_marginBottom="3dp"
+                android:text="Relax Dry"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/prod2name2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintTop_toBottomOf="@+id/brand2" />
+
+            <TextView
+                android:id="@+id/price2"
+                android:layout_width="24dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="168dp"
+                android:layout_marginBottom="81dp"
+                android:text="$49"
+                android:textColor="#FFC107"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintTop_toBottomOf="@+id/prod2name2" />
+
+            <ImageButton
+                android:id="@+id/minus"
+                android:layout_width="48dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="130dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#00FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/count"
+                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/twotone_remove_circle_24"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:id="@+id/plus"
+                android:layout_width="48dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="130dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#00FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/count"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/twotone_add_circle_24"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="16dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="142dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center_horizontal"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/plus"
+                app:layout_constraintStart_toEndOf="@+id/minus"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

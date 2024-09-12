@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_corners"
+    tools:context=".OrdersActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/orderspage"
+        android:layout_width="411dp"
+        android:layout_height="147dp"
+        android:background="@drawable/rounded_corners1"
+        android:elevation="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/orderback"
+            android:layout_width="0dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="353dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#00FFFFFF"
+            app:circularflow_defaultRadius="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/twotone_arrow_back_24"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/ordertitle"
+            android:layout_width="49dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="299dp"
+            android:layout_marginBottom="21dp"
+            android:text="Orders"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="2"
+            android:background="@drawable/rounded_search"
+            android:drawableStart="@drawable/round_search_24"
+            android:drawableEnd="@drawable/twotone_filter_alt_24"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:gravity="center|left"
+            android:hint="Search"
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/orders1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_corners"
+        android:elevation="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/order1"
+            android:layout_width="334dp"
+            android:layout_height="81dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/orderno1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="219dp"
+                android:layout_marginBottom="15dp"
+                android:text="Order #1112220021"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/placedno1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/placedno1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="173dp"
+                android:layout_marginBottom="17dp"
+                android:text="Placed on Nov. 09, 2022"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/barrier_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orderno1" />
+
+            <View
+                android:id="@+id/barrier_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BDBDBD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/order1pic"
+            android:layout_width="400px"
+            android:layout_height="400px"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_order1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/order1"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/brand1"
+            android:layout_width="38dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="145dp"
+            android:text="H &amp; M"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/prod1name1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/order1pic"
+            app:layout_constraintTop_toBottomOf="@+id/order1"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/prod1name2"
+            android:layout_width="51dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="74dp"
+            android:text="Joggers"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/forward"
+            app:layout_constraintStart_toEndOf="@+id/order1pic"
+            app:layout_constraintTop_toBottomOf="@+id/prod1name1" />
+
+        <TextView
+            android:id="@+id/prod1name1"
+            android:layout_width="43dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="109dp"
+            android:layout_marginBottom="1dp"
+            android:text="3 Pack"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/prod1name2"
+            app:layout_constraintEnd_toStartOf="@+id/forward"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/order1pic"
+            app:layout_constraintTop_toBottomOf="@+id/brand1" />
+
+        <TextView
+            android:id="@+id/price1"
+            android:layout_width="24dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="159dp"
+            android:text="$19"
+            android:textColor="#FFC107"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/order1pic"
+            app:layout_constraintTop_toBottomOf="@+id/prod1name2" />
+
+        <ImageButton
+            android:id="@+id/forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#00FFFFFF"
+            android:src="@drawable/twotone_navigate_next_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/order1"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/checks"
+            android:layout_width="369dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/order1pic"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:id="@+id/linear1Layout1"
+                android:layout_width="0dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/linear1Layout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/ordered1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Ordered"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/processing1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Processing"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/packed1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Packed"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/shipped1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Shipped"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/delivered1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Delivered"
+                    android:textColor="#00FF40"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear1Layout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-12dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear1Layout1">
+
+                <ImageButton
+                    android:id="@+id/ordercheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_check_circle_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/processcheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_check_circle_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/packcheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_check_circle_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/shipcheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_check_circle_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/delivercheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_check_circle_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/orders2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/rounded_corners"
+        android:elevation="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orders1"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/order2"
+            android:layout_width="334dp"
+            android:layout_height="81dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/orderno2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="219dp"
+                android:layout_marginBottom="15dp"
+                android:text="Order #1114220001"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/placedno2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/placedno2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Placed on Nov. 14, 2022"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orderno2" />
+
+            <View
+                android:id="@+id/barrier_line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="#BDBDBD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/placedno2"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/order2pic"
+            android:layout_width="400px"
+            android:layout_height="400px"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_order2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/order2"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/brand2"
+            android:layout_width="38dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="144dp"
+            android:layout_marginBottom="3dp"
+            android:text="Uniqlo"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/prod2name1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/order2pic"
+            app:layout_constraintTop_toBottomOf="@+id/order2"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/prod2name2"
+            android:layout_width="51dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="74dp"
+            android:layout_marginBottom="7dp"
+            android:text="Stretch"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/price2"
+            app:layout_constraintEnd_toStartOf="@+id/forward2"
+            app:layout_constraintStart_toEndOf="@+id/order2pic"
+            app:layout_constraintTop_toBottomOf="@+id/prod2name1" />
+
+        <TextView
+            android:id="@+id/prod2name1"
+            android:layout_width="61dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="122dp"
+            android:layout_marginBottom="3dp"
+            android:text="Relax Dry"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/prod2name2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/order2pic"
+            app:layout_constraintTop_toBottomOf="@+id/brand2" />
+
+        <TextView
+            android:id="@+id/price2"
+            android:layout_width="24dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginBottom="56dp"
+            android:text="$49"
+            android:textColor="#FFC107"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/checks2"
+            app:layout_constraintEnd_toStartOf="@+id/forward2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/order2pic"
+            app:layout_constraintTop_toBottomOf="@+id/prod2name2" />
+
+        <ImageButton
+            android:id="@+id/forward2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#00FFFFFF"
+            android:src="@drawable/twotone_navigate_next_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/order2"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/checks2"
+            android:layout_width="369dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/order2pic"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:id="@+id/linear2Layout1"
+                android:layout_width="0dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/linear2Layout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/ordered2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Ordered"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/processing2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Processing"
+                    android:textColor="#00FF40"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/packed2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Packed"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/shipped2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Shipped"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/delivered2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Delivered"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear2Layout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-12dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear2Layout1">
+
+                <ImageButton
+                    android:id="@+id/ordercheck2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_check_circle_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/processcheck2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_pending_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/packcheck2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_circle_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/shipcheck2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_circle_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/delivercheck2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/twotone_circle_24"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

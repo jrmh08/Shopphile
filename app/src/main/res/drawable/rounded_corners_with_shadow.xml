@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Shadow layer -->
+    <item>
+        <shape android:shape="rectangle">
+            <!-- Shadow color -->
+            <solid android:color="#55000000" /> <!-- Semi-transparent black for shadow -->
+
+            <!-- Shadow corner radius -->
+            <corners android:radius="16dp" />
+
+            <!-- Shadow offset and blur (simulated by adding margins) -->
+            <padding
+                android:top="4dp"
+                android:bottom="8dp"
+                android:left="4dp"
+                android:right="4dp" />
+        </shape>
+    </item>
+
+    <!-- Main rounded corners layer -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FF5722" /> <!-- Main fill color -->
+
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+</layer-list>
