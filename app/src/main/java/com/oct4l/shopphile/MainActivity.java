@@ -11,11 +11,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageButton btnCart;
     Button btnNewArrivals, btnPopProds;
+
+    //RecyclerView
+    PopProdsAdapter popProdsAdapter;
+    RecyclerView popProdsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +61,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //RecyclerView
+        List<Item> list = new ArrayList<>();
+        list = getData();
+        popProdsList = (RecyclerView)findViewById(R.id.popprodsrv);
+
+        popProdsAdapter = new PopProdsAdapter(list, getApplicationContext());
+        popProdsList.setAdapter(popProdsAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        popProdsList.setLayoutManager(layoutManager);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private List<Item> getData() {
+        List<Item> list = new ArrayList<>();
+        list.add(new Item("Zara", "Wool Blend", "Midi Skirt", "$99",R.drawable.icon_prod1));
+        list.add(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
+        list.add(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
+        return list;
     }
 }
