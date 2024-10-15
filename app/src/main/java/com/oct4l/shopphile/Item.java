@@ -68,5 +68,9 @@ public class Item {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-}
 
+    // New getters for name and price
+    public String getName() {
+        return productName1 + " " + productName2; // Combine both names for a complete item name
+    }
+}

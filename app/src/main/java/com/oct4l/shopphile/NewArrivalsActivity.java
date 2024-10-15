@@ -1,16 +1,10 @@
 package com.oct4l.shopphile;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,44 +15,54 @@ public class NewArrivalsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ItemAdapterNoCounter itemAdapterNoCounter;
     private ArrayList<Item> itemList;
-    private ArrayList<Item> cartItems; // List to store cart items
-    private ImageButton btnBack;
-    private Button btnShopNow;
+    private DBManager dbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_new_arrivals);
 
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        btnBack = findViewById(R.id.newarrback);
+        ImageButton btnBack = findViewById(R.id.newarrback);
 
-        // Initialize the item list and add some data
-        itemList = new ArrayList<>();
-        itemList.add(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
-        itemList.add(new Item("Zara", "Wool Blend", "Midi Skirt", "$99", R.drawable.icon_prod1));
-        itemList.add(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
-        itemList.add(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
-        itemList.add(new Item("Zara", "Wool Blend", "Midi Skirt", "$99", R.drawable.icon_prod1));
-        itemList.add(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
+        dbManager = new DBManager(this);
+        dbManager.open();
 
-        // Initialize cartItems list
-        cartItems = new ArrayList<>();
+        itemList = dbManager.fetchItems();
 
-        // Set up the adapter and pass both itemList and cartItems
-        itemAdapterNoCounter = new ItemAdapterNoCounter(this, itemList, cartItems);
+        if (itemList.isEmpty()) {
+            addSampleItemsToDatabase();
+            itemList = dbManager.fetchItems();  // Retrieve the updated item list
+        }
+
+        itemAdapterNoCounter = new ItemAdapterNoCounter(this, itemList, new ArrayList<Item>(), dbManager);
         recyclerView.setAdapter(itemAdapterNoCounter);
 
-        // Back button functionality
-        btnBack.setOnClickListener(v -> finish());
-
-        // Adjust for window insets
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        itemAdapterNoCounter.setOnAddToCartListener(new ItemAdapterNoCounter.OnAddToCartListener() {
+            @Override
+            public void onAddToCartClick(Item item) {
+                item.setQuantity(1); // Set the default quantity to 1
+                dbManager.addToCart(item); // Add the entire Item object
+                Toast.makeText(NewArrivalsActivity.this, "Added to Cart", Toast.LENGTH_SHORT).show();
+            }
         });
+
+        btnBack.setOnClickListener(v -> finish());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dbManager.close();
+    }
+
+    private void addSampleItemsToDatabase() {
+        dbManager.insertItem(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
+        dbManager.insertItem(new Item("Zara", "Wool Blend", "Midi Skirt", "$99", R.drawable.icon_prod1));
+        dbManager.insertItem(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
+        dbManager.insertItem(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
+        dbManager.insertItem(new Item("Zara", "Wool Blend", "Midi Skirt", "$99", R.drawable.icon_prod1));
+        dbManager.insertItem(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
     }
 }

@@ -2,6 +2,7 @@ package com.oct4l.shopphile;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -32,16 +33,17 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        btnCart = (ImageButton)findViewById(R.id.cart);
-        btnNewArrivals = (Button)findViewById(R.id.shopnow);
-        btnPopProds = (Button)findViewById(R.id.btnpopprods);
+        btnCart = findViewById(R.id.cart);
+        btnNewArrivals = findViewById(R.id.shopnow);
+        btnPopProds = findViewById(R.id.btnpopprods);
+        popProdsList = findViewById(R.id.popprodsrv);
 
         btnNewArrivals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an intent to start NewArrivalsActivity
-                Intent intent = new Intent(MainActivity.this, NewArrivalsActivity.class);
-                startActivity(intent); // Start NewArrivalsActivity
+                Log.d("MainActivity", "btnNewArrivals clicked");
+                Intent newArrIntent = new Intent(MainActivity.this, NewArrivalsActivity.class);
+                startActivity(newArrIntent);
             }
         });
 
@@ -56,20 +58,19 @@ public class MainActivity extends AppCompatActivity {
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ordersIntent = new Intent(MainActivity.this, CartActivity.class);
-                startActivity(ordersIntent);
+                Log.d("MainActivity", "btnCart clicked");
+                Intent cartIntent = new Intent(MainActivity.this, CartActivity.class);
+                startActivity(cartIntent);
             }
         });
 
-        //RecyclerView
-        List<Item> list = new ArrayList<>();
-        list = getData();
-        popProdsList = (RecyclerView)findViewById(R.id.popprodsrv);
-
-        popProdsAdapter = new PopProdsAdapter(list, getApplicationContext());
-        popProdsList.setAdapter(popProdsAdapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        popProdsList.setLayoutManager(layoutManager);
+        List<Item> list = getData();
+        if (popProdsList != null) {
+            popProdsAdapter = new PopProdsAdapter(list, getApplicationContext());
+            popProdsList.setAdapter(popProdsAdapter);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            popProdsList.setLayoutManager(layoutManager);
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Item> getData() {
         List<Item> list = new ArrayList<>();
-        list.add(new Item("Zara", "Wool Blend", "Midi Skirt", "$99",R.drawable.icon_prod1));
+        list.add(new Item("Zara", "Wool Blend", "Midi Skirt", "$99", R.drawable.icon_prod1));
         list.add(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
         list.add(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
         return list;
