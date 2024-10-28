@@ -41,7 +41,7 @@
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium" />
 
             <TextView
-                android:id="@+id/brand2"
+                android:id="@+id/brand1"
                 android:layout_width="38dp"
                 android:layout_height="19dp"
                 android:layout_marginStart="15dp"
@@ -50,7 +50,7 @@
                 android:layout_marginBottom="3dp"
                 android:text="Uniqlo"
                 android:textSize="11sp"
-                app:layout_constraintBottom_toTopOf="@+id/prod2name1"
+                app:layout_constraintBottom_toTopOf="@+id/prod1name1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/cart1"
@@ -58,7 +58,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/prod2name2"
+                android:id="@+id/prod1name2"
                 android:layout_width="51dp"
                 android:layout_height="19dp"
                 android:layout_marginStart="15dp"
@@ -66,13 +66,13 @@
                 android:layout_marginBottom="3dp"
                 android:text="Stretch"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/price2"
+                app:layout_constraintBottom_toTopOf="@+id/price1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cart1"
-                app:layout_constraintTop_toBottomOf="@+id/prod2name1" />
+                app:layout_constraintTop_toBottomOf="@+id/prod1name1" />
 
             <TextView
-                android:id="@+id/prod2name1"
+                android:id="@+id/prod1name1"
                 android:layout_width="61dp"
                 android:layout_height="19dp"
                 android:layout_marginStart="15dp"
@@ -80,13 +80,13 @@
                 android:layout_marginBottom="3dp"
                 android:text="Relax Dry"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/prod2name2"
+                app:layout_constraintBottom_toTopOf="@+id/prod1name2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cart1"
-                app:layout_constraintTop_toBottomOf="@+id/brand2" />
+                app:layout_constraintTop_toBottomOf="@+id/brand1" />
 
             <TextView
-                android:id="@+id/price2"
+                android:id="@+id/price1"
                 android:layout_width="24dp"
                 android:layout_height="19dp"
                 android:layout_marginStart="15dp"
@@ -99,7 +99,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cart1"
-                app:layout_constraintTop_toBottomOf="@+id/prod2name2" />
+                app:layout_constraintTop_toBottomOf="@+id/prod1name2" />
 
             <ImageButton
                 android:id="@+id/minus"

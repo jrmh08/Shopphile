@@ -23,23 +23,23 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // SQL to create the items table
     private static final String CREATE_ITEMS_TABLE = "CREATE TABLE " + TABLE_ITEMS + " (" +
-            COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            COLUMN_BRAND + " TEXT," +
-            COLUMN_PRODUCT_NAME1 + " TEXT," +
-            COLUMN_PRODUCT_NAME2 + " TEXT," +
-            COLUMN_PRICE + " TEXT," +
-            COLUMN_IMAGE_RESOURCE + " INTEGER," +
-            COLUMN_QUANTITY + " INTEGER DEFAULT 1" + ")";
+            COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_BRAND + " TEXT, " +
+            COLUMN_PRODUCT_NAME1 + " TEXT, " +
+            COLUMN_PRODUCT_NAME2 + " TEXT, " +
+            COLUMN_PRICE + " TEXT, " +
+            COLUMN_IMAGE_RESOURCE + " INTEGER, " +
+            COLUMN_QUANTITY + " INTEGER DEFAULT 1" + ");";
 
     // SQL to create the cart table
     private static final String CREATE_CART_TABLE = "CREATE TABLE " + CART_TABLE + " (" +
-            COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            COLUMN_BRAND + " TEXT," +
-            COLUMN_PRODUCT_NAME1 + " TEXT," +
-            COLUMN_PRODUCT_NAME2 + " TEXT," +
-            COLUMN_PRICE + " TEXT," +
-            COLUMN_IMAGE_RESOURCE + " INTEGER," +
-            COLUMN_QUANTITY + " INTEGER DEFAULT 1" + ")";
+            COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_BRAND + " TEXT, " +
+            COLUMN_PRODUCT_NAME1 + " TEXT, " +
+            COLUMN_PRODUCT_NAME2 + " TEXT, " +
+            COLUMN_PRICE + " TEXT, " +
+            COLUMN_IMAGE_RESOURCE + " INTEGER, " +
+            COLUMN_QUANTITY + " INTEGER DEFAULT 1" + ");";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

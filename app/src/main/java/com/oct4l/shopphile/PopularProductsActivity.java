@@ -21,7 +21,6 @@ public class PopularProductsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_popular_products);
 
         recyclerView = findViewById(R.id.recyclerview);
@@ -60,11 +59,13 @@ public class PopularProductsActivity extends AppCompatActivity {
     }
 
     private void addSampleItemsToDatabase() {
-        dbManager.insertItem(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
-        dbManager.insertItem(new Item("Zara", "Wool Blend", "Midi Skirt", "$99", R.drawable.icon_prod1));
-        dbManager.insertItem(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
-        dbManager.insertItem(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
-        dbManager.insertItem(new Item("Zara", "Wool Blend", "Midi Skirt", "$99", R.drawable.icon_prod1));
-        dbManager.insertItem(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
+        if (dbManager.fetchItems().isEmpty()){
+            dbManager.insertItem(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
+            dbManager.insertItem(new Item("Zara", "Wool Blend", "Midi Skirt", "$99", R.drawable.icon_prod1));
+            dbManager.insertItem(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
+            dbManager.insertItem(new Item("Uniqlo", "Relax Dry", "Stretch", "$49", R.drawable.icon_order2));
+            dbManager.insertItem(new Item("Zara", "Wool Blend", "Midi Skirt", "$99", R.drawable.icon_prod1));
+            dbManager.insertItem(new Item("H&M", "3-Pack", "Joggers", "$19", R.drawable.icon_order1));
+        }
     }
 }

@@ -21,13 +21,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private ArrayList<Item> itemList; // This can be used for regular items or cart items
     private DBManager dbManager;
     private boolean isCart; // Flag to indicate if the adapter is being used for cart items
+    private CartActivity cartActivity;
 
     // Constructor
-    public ItemAdapter(Context context, ArrayList<Item> itemList, DBManager dbManager, boolean isCart) {
+    public ItemAdapter(Context context, ArrayList<Item> itemList, DBManager dbManager, boolean isCart, CartActivity cartActivity) {
         this.context = context;
         this.itemList = itemList;
         this.dbManager = dbManager;
-        this.isCart = isCart; // Set the isCart flag
+        this.isCart = isCart;
+        this.cartActivity = cartActivity; // Store a reference to CartActivity
     }
 
     @NonNull
@@ -53,28 +55,28 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.productImageView.setImageResource(item.getImageResource());
 
         if (isCart) {
-            // If in cart mode, show quantity and set up plus/minus buttons
+            // Show quantity and set up plus/minus buttons
             holder.quantityTextView.setVisibility(View.VISIBLE);
             holder.quantityTextView.setText(String.valueOf(item.getQuantity()));
-            holder.addToCartButton.setText("Update Quantity");
 
-            // Handle plus button click
+            // Plus button click
             holder.plusButton.setOnClickListener(v -> {
                 item.setQuantity(item.getQuantity() + 1);
                 dbManager.updateCartQuantity(item.getProductName1(), item.getProductName2(), item.getQuantity());
-                notifyItemChanged(position); // Notify only the changed item
+                notifyItemChanged(position);
+                cartActivity.calculateTotals(); // Call calculateTotals() after updating
             });
 
-            // Handle minus button click
+            // Minus button click
             holder.minusButton.setOnClickListener(v -> {
                 if (item.getQuantity() > 1) {
                     item.setQuantity(item.getQuantity() - 1);
                     dbManager.updateCartQuantity(item.getProductName1(), item.getProductName2(), item.getQuantity());
-                    notifyItemChanged(position); // Notify only the changed item
+                    notifyItemChanged(position);
+                    cartActivity.calculateTotals(); // Call calculateTotals() after updating
                 }
             });
         } else {
-            // If in product mode, set up add to cart functionality
             holder.addToCartButton.setOnClickListener(v -> {
                 addItemToCart(item);
             });
@@ -102,10 +104,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            brandTextView = itemView.findViewById(R.id.brand2);
-            productName1TextView = itemView.findViewById(R.id.prod2name1);
-            productName2TextView = itemView.findViewById(R.id.prod2name2);
-            priceTextView = itemView.findViewById(R.id.price2);
+            brandTextView = itemView.findViewById(R.id.brand1);
+            productName1TextView = itemView.findViewById(R.id.prod1name1);
+            productName2TextView = itemView.findViewById(R.id.prod1name2);
+            priceTextView = itemView.findViewById(R.id.price1);
             productImageView = itemView.findViewById(R.id.cart1);
             addToCartButton = itemView.findViewById(R.id.addtocart);
             quantityTextView = itemView.findViewById(R.id.count); // For displaying quantity

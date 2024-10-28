@@ -29,7 +29,7 @@
 
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/cart1"
+                android:id="@+id/cart2"
                 android:layout_width="400px"
                 android:layout_height="400px"
                 android:layout_marginStart="20dp"
@@ -55,7 +55,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/prod2name1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintStart_toEndOf="@+id/cart2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
@@ -70,7 +70,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/price2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintStart_toEndOf="@+id/cart2"
                 app:layout_constraintTop_toBottomOf="@+id/prod2name1" />
 
             <TextView
@@ -84,7 +84,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/prod2name2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintStart_toEndOf="@+id/cart2"
                 app:layout_constraintTop_toBottomOf="@+id/brand2" />
 
             <TextView
@@ -100,7 +100,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintStart_toEndOf="@+id/cart2"
                 app:layout_constraintTop_toBottomOf="@+id/prod2name2" />
 
             <Button
@@ -116,7 +116,7 @@
                 app:cornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cart1"
+                app:layout_constraintStart_toEndOf="@+id/cart2"
                 app:layout_constraintTop_toBottomOf="@+id/prod2name1"
                 app:layout_constraintVertical_bias="0.0" />
 

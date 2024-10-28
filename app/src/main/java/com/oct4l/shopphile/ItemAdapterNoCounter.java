@@ -108,7 +108,7 @@ public class ItemAdapterNoCounter extends RecyclerView.Adapter<ItemAdapterNoCoun
             productName1TextView = itemView.findViewById(R.id.prod2name1);
             productName2TextView = itemView.findViewById(R.id.prod2name2);
             priceTextView = itemView.findViewById(R.id.price2);
-            productImageView = itemView.findViewById(R.id.cart1);
+            productImageView = itemView.findViewById(R.id.cart2);
             addToCartButton = itemView.findViewById(R.id.addtocart);
         }
     }

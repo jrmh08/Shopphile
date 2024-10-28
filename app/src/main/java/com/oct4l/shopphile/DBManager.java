@@ -43,6 +43,7 @@ public class DBManager {
         values.put(DBHelper.COLUMN_IMAGE_RESOURCE, item.getImageResource());
         values.put(DBHelper.COLUMN_QUANTITY, item.getQuantity());
         database.insert(DBHelper.TABLE_ITEMS, null, values);
+        //database.close();
     }
 
     // Fetch all items from the items table
@@ -93,48 +94,82 @@ public class DBManager {
 
     // Insert a new item into the cart table
 //    public void addToCart(Item item) {
-//        ContentValues values = new ContentValues();
-//        values.put(DBHelper.COLUMN_BRAND, item.getBrand());
-//        values.put(DBHelper.COLUMN_PRODUCT_NAME1, item.getProductName1());
-//        values.put(DBHelper.COLUMN_PRODUCT_NAME2, item.getProductName2());
-//        values.put(DBHelper.COLUMN_PRICE, item.getPrice());
-//        values.put(DBHelper.COLUMN_IMAGE_RESOURCE, item.getImageResource());
-//        values.put(DBHelper.COLUMN_QUANTITY, item.getQuantity());
+//        // Query to check if the item already exists in the cart
+//        Cursor cursor = database.rawQuery("SELECT " + DBHelper.COLUMN_QUANTITY + " FROM " + DBHelper.CART_TABLE +
+//                        " WHERE " + DBHelper.COLUMN_PRODUCT_NAME1 + " = ? AND " +
+//                        DBHelper.COLUMN_PRODUCT_NAME2 + " = ?",
+//                new String[]{item.getProductName1(), item.getProductName2()});
 //
-//        long result = database.insert(DBHelper.CART_TABLE, null, values);
-//
-//        if (result == -1) {
-//            Log.e("DBManager", "Failed to add item to cart: " + item.getProductName1());
+//        if (cursor != null && cursor.moveToFirst()) {
+//            // Item exists, so we increment the quantity
+//            int existingQuantity = cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_QUANTITY));
+//            int newQuantity = existingQuantity + item.getQuantity();
+//            updateCartQuantity(item.getProductName1(), item.getProductName2(), newQuantity);
+//            Log.d("DBManager", "Updated item quantity in cart: " + item.getProductName1() + ", new quantity: " + newQuantity);
 //        } else {
-//            Log.d("DBManager", "Item added to cart: " + item.getProductName1());
+//            // Item doesn't exist, so add it as a new entry
+//            ContentValues values = new ContentValues();
+//            values.put(DBHelper.COLUMN_BRAND, item.getBrand());
+//            values.put(DBHelper.COLUMN_PRODUCT_NAME1, item.getProductName1());
+//            values.put(DBHelper.COLUMN_PRODUCT_NAME2, item.getProductName2());
+//            values.put(DBHelper.COLUMN_PRICE, item.getPrice());
+//            values.put(DBHelper.COLUMN_IMAGE_RESOURCE, item.getImageResource());
+//            values.put(DBHelper.COLUMN_QUANTITY, item.getQuantity());
+//
+//            long result = database.insert(DBHelper.CART_TABLE, null, values);
+//
+//            if (result == -1) {
+//                Log.e("DBManager", "Failed to add item to cart: " + item.getProductName1());
+//            } else {
+//                Log.d("DBManager", "Item added to cart: " + item.getProductName1());
+//            }
+//        }
+//
+//        if (cursor != null) {
+//            cursor.close();
 //        }
 //    }
 
     public void addToCart(Item item) {
-        // Check if the item already exists in the items table
-        if (fetchItems().stream().noneMatch(existingItem ->
-                existingItem.getProductName1().equals(item.getProductName1()) &&
-                        existingItem.getProductName2().equals(item.getProductName2()))) {
+        // Query to check if the item already exists in the cart
+        Cursor cursor = database.rawQuery("SELECT " + DBHelper.COLUMN_QUANTITY + " FROM " + DBHelper.CART_TABLE +
+                        " WHERE " + DBHelper.COLUMN_PRODUCT_NAME1 + " = ? AND " +
+                        DBHelper.COLUMN_PRODUCT_NAME2 + " = ?",
+                new String[]{item.getProductName1(), item.getProductName2()});
 
-            // If it doesn't exist, insert it into the items table
-            insertItem(item);
+        if (cursor != null && cursor.moveToFirst()) {
+            // Check if COLUMN_QUANTITY index is valid
+            int quantityIndex = cursor.getColumnIndex(DBHelper.COLUMN_QUANTITY);
+            if (quantityIndex >= 0) {
+                // Item exists, so we increment the quantity
+                int existingQuantity = cursor.getInt(quantityIndex);
+                int newQuantity = existingQuantity + item.getQuantity();
+                updateCartQuantity(item.getProductName1(), item.getProductName2(), newQuantity);
+                Log.d("DBManager", "Updated item quantity in cart: " + item.getProductName1() + ", new quantity: " + newQuantity);
+            } else {
+                Log.e("DBManager", "Column 'COLUMN_QUANTITY' not found in the cart table.");
+            }
+        } else {
+            // Item doesn't exist, so add it as a new entry
+            ContentValues values = new ContentValues();
+            values.put(DBHelper.COLUMN_BRAND, item.getBrand());
+            values.put(DBHelper.COLUMN_PRODUCT_NAME1, item.getProductName1());
+            values.put(DBHelper.COLUMN_PRODUCT_NAME2, item.getProductName2());
+            values.put(DBHelper.COLUMN_PRICE, item.getPrice());
+            values.put(DBHelper.COLUMN_IMAGE_RESOURCE, item.getImageResource());
+            values.put(DBHelper.COLUMN_QUANTITY, item.getQuantity());
+
+            long result = database.insert(DBHelper.CART_TABLE, null, values);
+
+            if (result == -1) {
+                Log.e("DBManager", "Failed to add item to cart: " + item.getProductName1());
+            } else {
+                Log.d("DBManager", "Item added to cart: " + item.getProductName1());
+            }
         }
 
-        // Now, add the item to the cart
-        ContentValues values = new ContentValues();
-        values.put(DBHelper.COLUMN_BRAND, item.getBrand());
-        values.put(DBHelper.COLUMN_PRODUCT_NAME1, item.getProductName1());
-        values.put(DBHelper.COLUMN_PRODUCT_NAME2, item.getProductName2());
-        values.put(DBHelper.COLUMN_PRICE, item.getPrice());
-        values.put(DBHelper.COLUMN_IMAGE_RESOURCE, item.getImageResource());
-        values.put(DBHelper.COLUMN_QUANTITY, item.getQuantity());
-
-        long result = database.insert(DBHelper.CART_TABLE, null, values);
-
-        if (result == -1) {
-            Log.e("DBManager", "Failed to add item to cart: " + item.getProductName1());
-        } else {
-            Log.d("DBManager", "Item added to cart: " + item.getProductName1());
+        if (cursor != null) {
+            cursor.close();
         }
     }
 
