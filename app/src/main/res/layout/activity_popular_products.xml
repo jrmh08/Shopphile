@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F3F3F3"
     tools:context=".PopularProductsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,6 +44,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="35dp"
             android:text="Popular Products"
+            android:textColor="#CD000000"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/newarrback"

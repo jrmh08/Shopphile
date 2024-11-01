@@ -14,6 +14,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corners1"
         android:elevation="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,6 +42,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="3dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -48,6 +53,7 @@
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="3dp"
                     android:text="Deliver to"
+                    android:textColor="#CD000000"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,6 +66,7 @@
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="6dp"
                     android:text="Home"
+                    android:textColor="#CD000000"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/dropdown"
@@ -144,6 +151,8 @@
             android:hint="Search"
             android:inputType="text"
             android:minHeight="48dp"
+            android:textColor="#3C3C3C"
+            android:textColorHint="#9E9E9E"
             app:layout_constraintBottom_toTopOf="@+id/category"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +161,7 @@
 
         <LinearLayout
             android:id="@+id/category"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
@@ -240,8 +249,8 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/adspic"
-                    android:layout_width="500px"
-                    android:layout_height="500px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="190dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="50dp"
@@ -286,9 +295,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:backgroundTint="#34FFC107"
+                    android:backgroundTint="#80FFC107"
                     android:text="Shop Now"
-                    android:textColor="@color/black"
+                    android:textColor="#FFFFFF"
                     app:cornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -298,6 +307,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:text="With Free Shipping"
+                    android:textColor="#CD000000"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -331,7 +341,7 @@
                         android:layout_weight="1"
                         android:background="#00FFFFFF"
                         android:text="Popular Products"
-                        android:textColor="#000000" />
+                        android:textColor="#CD000000" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -435,21 +445,24 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Discover" />
+                android:text="Discover"
+                android:textColor="#FF999999" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Likes" />
+                android:text="Likes"
+                android:textColor="#FF999999" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Account" />
+                android:text="Account"
+                android:textColor="#FF999999" />
         </LinearLayout>
     </LinearLayout>
 

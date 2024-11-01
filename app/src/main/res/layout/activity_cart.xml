@@ -44,6 +44,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="35dp"
             android:text="Cart"
+            android:textColor="#CD000000"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/cartback"
@@ -119,7 +120,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="start"
-                    android:text="Total" />
+                    android:text="Total"
+                    android:textColor="#CD000000" />
 
                 <TextView
                     android:id="@+id/totalprice"
@@ -127,7 +129,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="$49" />
+                    android:text="$49"
+                    android:textColor="#CD000000" />
             </LinearLayout>
 
             <LinearLayout
@@ -146,7 +149,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="start"
-                    android:text="Shipment (Regular)" />
+                    android:text="Shipment (Regular)"
+                    android:textColor="#CD000000" />
 
                 <TextView
                     android:id="@+id/shiptotal"
@@ -154,7 +158,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="$29" />
+                    android:text="$29"
+                    android:textColor="#CD000000" />
 
             </LinearLayout>
 
@@ -163,7 +168,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="5dp"
-                android:background="#BDBDBD"
+                android:background="#CD000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -185,7 +190,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="start"
-                    android:text="Amount Payable" />
+                    android:text="Amount Payable"
+                    android:textColor="#CD000000" />
 
                 <TextView
                     android:id="@+id/amtpayprice"
@@ -193,7 +199,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="$78" />
+                    android:text="$78"
+                    android:textColor="#CD000000" />
 
             </LinearLayout>
 
@@ -211,6 +218,7 @@
                     android:layout_height="0dp"
                     android:backgroundTint="#FFC107"
                     android:text="Checkout"
+                    android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     app:cornerRadius="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"

@@ -5,5 +5,5 @@
     <corners android:radius="13dp" /> <!-- Rounded corners -->
     <stroke
         android:width="2dp"
-        android:color="#D3D3D3" /> <!-- Optional: Border color -->
+        android:color="#FF999999" /> <!-- Optional: Border color -->
 </shape>

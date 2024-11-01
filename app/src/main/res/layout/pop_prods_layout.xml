@@ -26,13 +26,15 @@
             android:id="@+id/mainbrand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#CD000000" />
 
         <TextView
             android:id="@+id/mainprodname1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#CD000000"
             android:textStyle="bold" />
 
         <TextView
@@ -40,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#CD000000"
             android:textStyle="bold" />
 
         <TextView
