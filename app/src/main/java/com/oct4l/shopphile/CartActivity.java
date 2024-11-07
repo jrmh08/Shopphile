@@ -1,6 +1,7 @@
 package com.oct4l.shopphile;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ public class CartActivity extends AppCompatActivity {
     private ItemAdapter itemAdapter; // Use ItemAdapter for displaying cart items
     private TextView totalPriceTextView, shipTotalTextView, amtPayPriceTextView;
     private ImageButton btnBack;
+    private Button btnCheckout;
     private ArrayList<Item> cartList; // Initialize an empty ArrayList
     private double totalPrice = 0.0;
     private double shipTotal = 5.0; // Example shipping cost
@@ -42,6 +45,7 @@ public class CartActivity extends AppCompatActivity {
         dbManager.open();
 
         btnBack = findViewById(R.id.cartback);
+        btnCheckout = findViewById(R.id.btncheckout);
         recyclerView = findViewById(R.id.recycler_view);
         totalPriceTextView = findViewById(R.id.totalprice);
         shipTotalTextView = findViewById(R.id.shiptotal);
@@ -56,6 +60,16 @@ public class CartActivity extends AppCompatActivity {
 
         Log.d("CartActivity", "RecyclerView: " + recyclerView);
         Log.d("CartActivity", "ItemAdapter: " + itemAdapter);
+
+        btnCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbManager.checkoutCart(cartList);
+                Toast.makeText(CartActivity.this, "Order placed successfully!", Toast.LENGTH_SHORT).show();
+                Intent orderIntent = new Intent(CartActivity.this, OrdersActivity.class);
+                startActivity(orderIntent);
+            }
+        });
 
         deleteIcon = ContextCompat.getDrawable(this, R.drawable.twotone_delete_24);
 

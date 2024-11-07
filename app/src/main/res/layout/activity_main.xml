@@ -181,6 +181,7 @@
                 android:backgroundTint="#FFC107"
                 android:paddingHorizontal="16dp"
                 android:text="All"
+                android:textColor="#FFFFFF"
                 app:cornerRadius="15dp" />
 
             <Button

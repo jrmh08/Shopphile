@@ -8,7 +8,10 @@ public class Item {
     private String productName2;
     private String price;
     private int imageResource;
-    private int quantity; // Add quantity field
+    private int quantity;// Add quantity field
+    private int status;
+    private String placedNo;
+    private int orderNo;
 
     // Constructor
     public Item(String brand, String productName1, String productName2, String price, int imageResource) {
@@ -18,6 +21,18 @@ public class Item {
         this.price = price;
         this.imageResource = imageResource;
         this.quantity = 1; // Default quantity
+    }
+
+    public Item(String brand, String productName1, String productName2, String price, int imageResource, int quantity, int status, String placedNo, int orderNo) {
+        this.brand = brand;
+        this.productName1 = productName1;
+        this.productName2 = productName2;
+        this.price = price;
+        this.imageResource = imageResource;
+        this.quantity = quantity;
+        this.status = status;
+        this.placedNo = placedNo;
+        this.orderNo = orderNo;
     }
 
     // Getters and Setters
@@ -72,5 +87,21 @@ public class Item {
     // New getters for name and price
     public String getName() {
         return productName1 + " " + productName2; // Combine both names for a complete item name
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getPlacedNo() {
+        return placedNo;
+    }
+
+    public void setPlacedNo(String placedNo) {
+        this.placedNo = placedNo;
     }
 }
