@@ -1,6 +1,9 @@
 package com.oct4l.shopphile;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -22,6 +25,14 @@ public class PopularProductsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popular_products);
+
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(android.R.color.white));
+
+        // Set the status bar icons to dark mode (if API level 23+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
 
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

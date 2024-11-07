@@ -1,7 +1,9 @@
 package com.oct4l.shopphile;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
@@ -27,6 +29,14 @@ public class OrdersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_orders);
+
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(android.R.color.white));
+
+        // Set the status bar icons to dark mode (if API level 23+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
 
         btnBack = (ImageButton)findViewById(R.id.orderback);
         recyclerView = (RecyclerView)findViewById(R.id.orderrecyclerview);
